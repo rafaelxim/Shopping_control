@@ -41,7 +41,7 @@ function setList(list){
 			        '<td>'+ formatDesc(list[key].desc) + '</td>' +
 			        '<td>'+ list[key].amount + '</td>' +
 			        '<td>'+ formatValue(list[key].value) + '</td>' +
-			        '<td>Edit | Delete</td>' +
+			        '<td> <button class="btn btn-default" onclick="setUpdate('+key+');" >Edit</button> | Delete</td>' +
 			      '</tr>' ;
 	}
 	table+= '</tbody>' ;
@@ -69,6 +69,26 @@ function addData(){
 
 	list.unshift({"desc":desc , "value":value , "amount":amount});
 	setList(list); 
+}
+
+function setUpdate(id){
+	var obj = list[id] ;
+	document.getElementById('desc').value  = obj.desc ; 
+	document.getElementById('amount').value  = obj.amount ; 
+	document.getElementById('value').value  = obj.value ; 
+
+	document.getElementById('btnUpdate').style.display = "inline-block"; 
+	document.getElementById('btnAdd').style.display = "none"; 
+}
+
+function resetForm(id){
+	
+	document.getElementById('desc').value  = ""; 
+	document.getElementById('amount').value  = "" ; 
+	document.getElementById('value').value  = "" ; 
+
+	document.getElementById('btnUpdate').style.display = "none"; 
+	document.getElementById('btnAdd').style.display = "inline-block"; 
 }
 
 console.log(getTotal(list)) ;

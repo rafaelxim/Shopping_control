@@ -62,5 +62,14 @@ function formatValue(value){
 	return str ; 
 }
 
+function addData(){
+	var desc = document.getElementById('desc').value ; 
+	var value = document.getElementById('amount').value ; 
+	var amount = document.getElementById('value').value ;
+
+	list.unshift({"desc":desc , "value":value , "amount":amount});
+	setList(list); 
+}
+
 console.log(getTotal(list)) ;
 setList(list) ; 

@@ -26,4 +26,27 @@ function getTotal(list){
 	return total ;
 }
 
+function setList(list){
+	var table = '<thead>' +
+			      '<tr>'+
+			        '<th>Description</th>'+
+			        '<th>Amount</th>'+
+			        '<th>Value</th>'+
+			        '<th>Ação</th>'+
+			    '  </tr>'+
+			    '</thead>'+
+			    '<tbody>' ; 
+	for(var key in list){
+		table += '<tr>' +
+			        '<td>'+ list[key].desc + '</td>' +
+			        '<td>'+ list[key].amount + '</td>' +
+			        '<td>'+ list[key].value + '</td>' +
+			        '<td>Edit | Delete</td>' +
+			      '</tr>' ;
+	}
+	table+= '</tbody>' ;
+	document.getElementById('listTable').innerHTML = table ;
+}
+
 console.log(getTotal(list)) ;
+setList(list) ; 

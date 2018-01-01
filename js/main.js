@@ -47,6 +47,7 @@ function setList(list){
 	}
 	table+= '</tbody>' ;
 	getTotal(list) ;
+	saveListStorage(list) ;
 	document.getElementById('listTable').innerHTML = table ;
 }
 
@@ -177,5 +178,21 @@ function deleteList(){
 	}
 } 
 
-// console.log(getTotal(list)) ;
-setList(list) ; 
+//salva a lista no local storage
+function saveListStorage(list){
+	//transforma a list em um json string
+	var jsonStr = JSON.stringify(list) ;
+	localStorage.setItem("list", jsonStr) ;
+}
+
+//recupera a lista do local storage
+function initListStorage(){
+	var testList = localStorage.getItem('list') ; 
+	if(testList){
+		list = JSON.parse(testList) ;
+	}
+	setList(list) ;
+}
+
+
+initListStorage() ;

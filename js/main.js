@@ -168,6 +168,13 @@ function validation(){
 		return 1 ;
 	}
 
+}
+
+function deleteList(){
+	if(confirm('Delete the entire list ?')){
+		list = [] ; 
+		setList(list) ;
+	}
 } 
 
 // console.log(getTotal(list)) ;

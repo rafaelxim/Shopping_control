@@ -23,10 +23,11 @@ function getTotal(list){
 	for (var key in list){
 		total += list[key].value * list[key].amount ; 
 	}
-	return total ;
+	document.getElementById('totalValue').innerHTML = formatValue(total);	
 }
 
 function setList(list){
+
 	var table = '<thead>' +
 			      '<tr>'+
 			        '<th>Description</th>'+
@@ -45,6 +46,7 @@ function setList(list){
 			      '</tr>' ;
 	}
 	table+= '</tbody>' ;
+	getTotal(list) ;
 	document.getElementById('listTable').innerHTML = table ;
 }
 
@@ -168,5 +170,5 @@ function validation(){
 
 } 
 
-console.log(getTotal(list)) ;
+// console.log(getTotal(list)) ;
 setList(list) ; 
